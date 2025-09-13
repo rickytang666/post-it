@@ -60,7 +60,7 @@ export class Snap3DInteractableFactory extends BaseScriptComponent {
         return;
       }
       this.avaliableToRequest = false;
-
+      
       this.generateSnap3DPrompt(originalText)
         .then((cleanPrompt) => {
           // Instantiate the object

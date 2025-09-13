@@ -70,9 +70,6 @@
         Port_Position3_N073:
           typeIdx: 1
           value: 1.000000
-        Port_PrevWorldPosition_N004:
-          typeIdx: 4
-          value: {x: 0.000000, y: 0.000000, z: 0.000000}
         Port_RayDirection_N004:
           typeIdx: 4
           value: {x: 0.000000, y: 1.000000, z: 0.000000}
@@ -228,7 +225,7 @@
             mValues:
               []
         ShaderType: Mesh3d
-      ShaderPath: a38fab71-cc93-2b28-f3c4-4bc66012dc22/8f5c751c664fff4efc06aabc4aee48c4/Data/5c693aa/InteractorLineMat.glsl
+      ShaderPath: a38fab71-cc93-2b28-f3c4-4bc66012dc22/8f5c751c664fff4efc06aabc4aee48c4/Data/0a4e116/InteractorLineMat.glsl
       Defines:
         []
       Properties:

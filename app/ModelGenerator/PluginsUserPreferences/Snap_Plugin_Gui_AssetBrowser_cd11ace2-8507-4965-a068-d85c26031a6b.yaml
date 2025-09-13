@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 720
+    size: 688
     values:
       - ""
       - LSTween.lspkg
@@ -97,8 +97,6 @@ CollapsedEntities:
       - Render
       - Render/Device Camera Texture.deviceCameraTexture
       - Render/Echopark.hdr
-      - Render/Echopark.hdr/Diffuse
-      - Render/Echopark.hdr/Specular
       - Render/Render Target.renderTarget
       - Scene.scene
       - Scripts
@@ -564,36 +562,6 @@ CollapsedEntities:
       - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/Bases.fbx/Meshes/Cubic_01
       - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/Bases.fbx/Meshes/Hexagon_01
       - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Meteor
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Planet
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Planet1
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_01_bottom
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_01_bottom1
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_01_bottom2
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_01_bottom3
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_01_middle
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_01_middle1
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_01_middle2
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_01_top
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_01_top1
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_02_bottom
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_02_middle
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_02_top
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_03_bottom
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_03_bottom1
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_03_bottom2
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_03_bottom3
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_03_bottom4
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_03_middle
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_03_top
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_03_top1
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Rocket_03_top2
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Satellite
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Satellite1
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Satellite2
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/Meshes/Satellite3
-      - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Meshes/SIK_Rockets.fbx/SIK_Rockets
       - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Prefabs
       - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Prefabs/Parts
       - SpectaclesInteractionKitExamples.lspkg/Examples/RocketWorkshop/Prefabs/Parts/Modern Body Tube.prefab

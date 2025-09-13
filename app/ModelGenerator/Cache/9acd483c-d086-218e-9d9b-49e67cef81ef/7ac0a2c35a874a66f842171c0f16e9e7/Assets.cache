@@ -94,9 +94,6 @@
         Port_Position4_N067:
           typeIdx: 1
           value: 1.000000
-        Port_PrevWorldPosition_N004:
-          typeIdx: 4
-          value: {x: 0.000000, y: 0.000000, z: 0.000000}
         Port_RayDirection_N004:
           typeIdx: 4
           value: {x: 0.000000, y: 1.000000, z: 0.000000}
@@ -219,7 +216,7 @@
             mValues:
               []
         ShaderType: Mesh3d
-      ShaderPath: 9acd483c-d086-218e-9d9b-49e67cef81ef/7ac0a2c35a874a66f842171c0f16e9e7/Data/5c693aa/CapsuleButtonPinched.glsl
+      ShaderPath: 9acd483c-d086-218e-9d9b-49e67cef81ef/7ac0a2c35a874a66f842171c0f16e9e7/Data/0a4e116/CapsuleButtonPinched.glsl
       Defines:
         []
       Properties:

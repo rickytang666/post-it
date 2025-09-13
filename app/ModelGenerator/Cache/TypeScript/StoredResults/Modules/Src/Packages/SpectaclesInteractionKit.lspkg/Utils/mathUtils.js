@@ -1,17 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NANOSECONDS_PER_SECOND = exports.NANOSECONDS_PER_MILLISECOND = exports.RadToDeg = exports.DegToRad = void 0;
-exports.averageVec3 = averageVec3;
-exports.averageVec2 = averageVec2;
-exports.inverseLerp = inverseLerp;
-exports.interpolateVec3 = interpolateVec3;
-exports.transformPoint = transformPoint;
-exports.clamp = clamp;
-exports.mapValue = mapValue;
-exports.lerp = lerp;
-exports.smoothDamp = smoothDamp;
-exports.smoothDampAngle = smoothDampAngle;
-exports.smoothSlide = smoothSlide;
+exports.smoothSlide = exports.smoothDampAngle = exports.smoothDamp = exports.lerp = exports.mapValue = exports.clamp = exports.transformPoint = exports.interpolateVec3 = exports.inverseLerp = exports.averageVec2 = exports.NANOSECONDS_PER_SECOND = exports.NANOSECONDS_PER_MILLISECOND = exports.RadToDeg = exports.DegToRad = exports.averageVec3 = void 0;
 /**
  * Compute the average vector of a list of values
  * @param values list of vectors to compute the average from
@@ -27,6 +16,7 @@ function averageVec3(values) {
     }
     return average.uniformScale(1 / values.length);
 }
+exports.averageVec3 = averageVec3;
 exports.DegToRad = Math.PI / 180;
 exports.RadToDeg = 180 / Math.PI;
 exports.NANOSECONDS_PER_MILLISECOND = 1000000;
@@ -46,6 +36,7 @@ function averageVec2(values) {
     }
     return average.uniformScale(1 / values.length);
 }
+exports.averageVec2 = averageVec2;
 function inverseLerp(start, end, value) {
     if (start === end) {
         return 0;
@@ -54,6 +45,7 @@ function inverseLerp(start, end, value) {
         return (value - start) / (end - start);
     }
 }
+exports.inverseLerp = inverseLerp;
 /**
  * Interpolate between two vectors using a ratio.
  * @param vectorA First vector.
@@ -64,6 +56,7 @@ function inverseLerp(start, end, value) {
 function interpolateVec3(vectorA, vectorB, ratio) {
     return vectorA.uniformScale(1 - ratio).add(vectorB.uniformScale(ratio));
 }
+exports.interpolateVec3 = interpolateVec3;
 // Transforms `localPoint` from `transform` local space to world space.
 function transformPoint(transform, localPoint) {
     const t = mat4.fromTranslation(transform.getWorldPosition());
@@ -72,9 +65,11 @@ function transformPoint(transform, localPoint) {
     const m = t.mult(r).mult(s);
     return m.multiplyPoint(localPoint);
 }
+exports.transformPoint = transformPoint;
 function clamp(value, min, max) {
     return Math.min(Math.max(value, min), max);
 }
+exports.clamp = clamp;
 /**
  *
  * @param val the value that should be mapped
@@ -87,11 +82,13 @@ function clamp(value, min, max) {
 function mapValue(val, inMax, inMin, outMax, outMin) {
     return ((val - inMax) / (inMin - inMax)) * (outMin - outMax) + outMax;
 }
+exports.mapValue = mapValue;
 function lerp(value1, value2, amount) {
     amount = amount < 0 ? 0 : amount;
     amount = amount > 1 ? 1 : amount;
     return value1 + (value2 - value1) * amount;
 }
+exports.lerp = lerp;
 /**
  * Dampens a current value back to a target value with spring-damper behavior.
  * @param current - the current value (usually position along an axis)
@@ -127,6 +124,7 @@ function smoothDamp(current, target, velocity, smoothTime, deltaTime) {
     const vel = ensqrtkt * (velocity + sqrtk * x0) - sqrtk * pos;
     return [target + pos, vel];
 }
+exports.smoothDamp = smoothDamp;
 function smoothDampAngle(current, target, velocity, smoothTime, deltaTime) {
     if (target - current > Math.PI)
         current += 2 * Math.PI;
@@ -134,6 +132,7 @@ function smoothDampAngle(current, target, velocity, smoothTime, deltaTime) {
         current -= 2 * Math.PI;
     return smoothDamp(current, target, velocity, smoothTime, deltaTime);
 }
+exports.smoothDampAngle = smoothDampAngle;
 /**
  * Smoothens a current value based on velocity while reducing the velocity.
  * @param current - the current value
@@ -161,4 +160,5 @@ function smoothSlide(current, velocity, smoothTime, deltaTime) {
     const vel = -env0ev0c + (enct * (c * ect * velocity + c * cectx0)) / c;
     return [pos, vel];
 }
+exports.smoothSlide = smoothSlide;
 //# sourceMappingURL=mathUtils.js.map

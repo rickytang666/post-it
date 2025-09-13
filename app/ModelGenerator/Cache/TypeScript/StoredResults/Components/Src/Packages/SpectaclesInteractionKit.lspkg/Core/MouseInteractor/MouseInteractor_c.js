@@ -1,16 +1,16 @@
 ﻿if (script.onAwake) {
-    script.onAwake();
-    return;
-}
-function checkUndefined(property, showIfData) {
-    for (var i = 0; i < showIfData.length; i++) {
-        if (showIfData[i][0] && script[showIfData[i][0]] != showIfData[i][1]) {
-            return;
-        }
-    }
-    if (script[property] == undefined) {
-        throw new Error("Input " + property + " was not provided for the object " + script.getSceneObject().name);
-    }
+	script.onAwake();
+	return;
+};
+function checkUndefined(property, showIfData){
+   for (var i = 0; i < showIfData.length; i++){
+       if (showIfData[i][0] && script[showIfData[i][0]] != showIfData[i][1]){
+           return;
+       }
+   }
+   if (script[property] == undefined){
+      throw new Error('Input ' + property + ' was not provided for the object ' + script.getSceneObject().name);
+   }
 }
 // @ui {"widget":"group_start", "label":"Interactor"}
 // @input bool _drawDebug {"hint":"Should draw gizmos for visual debugging."}
@@ -32,14 +32,15 @@ function checkUndefined(property, showIfData) {
 // @ui {"widget":"group_end"}
 // @input bool moveInDepth {"hint":"Moves the interactor in depth to help test 3D interactions in z space."}
 // @input float moveInDepthAmount = 5 {"hint":"Controls the maximum distance (in cm) that the mouse interactor will move back and forth along its ray direction     when moveInDepth is enabled. Higher values create larger depth movements, simulating interaction across a wider     z-range for testing 3D interactions.", "showIf":"moveInDepth", "showIfValue":true}
-if (!global.BaseScriptComponent) {
-    function BaseScriptComponent() {}
-    global.BaseScriptComponent = BaseScriptComponent;
-    global.BaseScriptComponent.prototype = Object.getPrototypeOf(script);
-    global.BaseScriptComponent.prototype.__initialize = function () {};
-    global.BaseScriptComponent.getTypeName = function () {
-        throw new Error("Cannot get type name from the class, not decorated with @component");
-    };
+var scriptPrototype = Object.getPrototypeOf(script);
+if (!global.BaseScriptComponent){
+   function BaseScriptComponent(){}
+   global.BaseScriptComponent = BaseScriptComponent;
+   global.BaseScriptComponent.prototype = scriptPrototype;
+   global.BaseScriptComponent.prototype.__initialize = function(){};
+   global.BaseScriptComponent.getTypeName = function(){
+       throw new Error("Cannot get type name from the class, not decorated with @component");
+   }
 }
 var Module = require("../../../../../../Modules/Src/Packages/SpectaclesInteractionKit.lspkg/Core/MouseInteractor/MouseInteractor");
 Object.setPrototypeOf(script, Module.MouseInteractor.prototype);

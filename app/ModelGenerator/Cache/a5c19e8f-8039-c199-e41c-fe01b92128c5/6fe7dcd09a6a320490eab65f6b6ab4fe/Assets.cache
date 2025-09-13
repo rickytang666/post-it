@@ -103,9 +103,6 @@
         Port_Position2_N038:
           typeIdx: 1
           value: 1.000000
-        Port_PrevWorldPosition_N004:
-          typeIdx: 4
-          value: {x: 0.000000, y: 0.000000, z: 0.000000}
         Port_RangeMaxA_N022:
           typeIdx: 1
           value: 1.000000
@@ -231,7 +228,7 @@
             mValues:
               []
         ShaderType: Mesh3d
-      ShaderPath: a5c19e8f-8039-c199-e41c-fe01b92128c5/6fe7dcd09a6a320490eab65f6b6ab4fe/Data/5c693aa/Top_Rocket_Trail.glsl
+      ShaderPath: a5c19e8f-8039-c199-e41c-fe01b92128c5/6fe7dcd09a6a320490eab65f6b6ab4fe/Data/0a4e116/Top_Rocket_Trail.glsl
       Defines:
         []
       Properties:

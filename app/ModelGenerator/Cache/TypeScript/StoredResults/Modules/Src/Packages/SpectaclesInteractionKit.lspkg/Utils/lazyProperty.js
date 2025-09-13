@@ -6,7 +6,7 @@
  * @returns a function that will return the value of getPropertyFunction, which will only be called once
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.lazyProperty = lazyProperty;
+exports.lazyProperty = void 0;
 /**
  * @param getPropertyFunction
  */
@@ -19,4 +19,5 @@ function lazyProperty(getPropertyFunction) {
         return lazyProperty;
     };
 }
+exports.lazyProperty = lazyProperty;
 //# sourceMappingURL=lazyProperty.js.map

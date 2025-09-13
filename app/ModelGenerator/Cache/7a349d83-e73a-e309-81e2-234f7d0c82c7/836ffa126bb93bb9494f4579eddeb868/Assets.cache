@@ -82,9 +82,6 @@
         Port_Position2_N005:
           typeIdx: 1
           value: 1.000000
-        Port_PrevWorldPosition_N004:
-          typeIdx: 4
-          value: {x: 0.000000, y: 0.000000, z: 0.000000}
         Port_RangeMaxA_N015:
           typeIdx: 1
           value: 1.000000
@@ -200,7 +197,7 @@
             mValues:
               []
         ShaderType: Mesh3d
-      ShaderPath: 7a349d83-e73a-e309-81e2-234f7d0c82c7/836ffa126bb93bb9494f4579eddeb868/Data/5c693aa/Glow_MAt.glsl
+      ShaderPath: 7a349d83-e73a-e309-81e2-234f7d0c82c7/836ffa126bb93bb9494f4579eddeb868/Data/0a4e116/Glow_MAt.glsl
       Defines:
         []
       Properties:

@@ -61,9 +61,6 @@
         Port_GSplatScale_N004:
           typeIdx: 4
           value: {x: 0.000000, y: 0.000000, z: 0.000000}
-        Port_PrevWorldPosition_N004:
-          typeIdx: 4
-          value: {x: 0.000000, y: 0.000000, z: 0.000000}
         Port_RayDirection_N004:
           typeIdx: 4
           value: {x: 0.000000, y: 1.000000, z: 0.000000}
@@ -1456,7 +1453,7 @@
             mValues:
               []
         ShaderType: Mesh3d
-      ShaderPath: c8626c9d-0b14-c6ba-2b61-f3dd91f47ccb/6ad7f61ce6f556ca415c78d04664e267/Data/.hidden/5c693aa/Lightbake.001.glsl
+      ShaderPath: c8626c9d-0b14-c6ba-2b61-f3dd91f47ccb/6ad7f61ce6f556ca415c78d04664e267/Data/.hidden/0a4e116/Lightbake.001.glsl
       Defines:
         []
       Properties:
@@ -1611,9 +1608,6 @@
         typeIdx: 5
         value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
     - Port_GSplatScale_N004:
-        typeIdx: 4
-        value: {x: 0.000000, y: 0.000000, z: 0.000000}
-    - Port_PrevWorldPosition_N004:
         typeIdx: 4
         value: {x: 0.000000, y: 0.000000, z: 0.000000}
     - Port_RayDirection_N004:

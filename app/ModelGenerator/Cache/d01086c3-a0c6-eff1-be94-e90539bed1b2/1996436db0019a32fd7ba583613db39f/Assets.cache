@@ -52,9 +52,6 @@
         Port_Position3_N007:
           typeIdx: 1
           value: 1.000000
-        Port_PrevWorldPosition_N004:
-          typeIdx: 4
-          value: {x: 0.000000, y: 0.000000, z: 0.000000}
         Port_RayDirection_N004:
           typeIdx: 4
           value: {x: 0.000000, y: 1.000000, z: 0.000000}
@@ -134,7 +131,7 @@
             mValues:
               []
         ShaderType: Mesh3d
-      ShaderPath: d01086c3-a0c6-eff1-be94-e90539bed1b2/1996436db0019a32fd7ba583613db39f/Data/5c693aa/RoundButtonGlowPinched.glsl
+      ShaderPath: d01086c3-a0c6-eff1-be94-e90539bed1b2/1996436db0019a32fd7ba583613db39f/Data/0a4e116/RoundButtonGlowPinched.glsl
       Defines:
         []
       Properties:
