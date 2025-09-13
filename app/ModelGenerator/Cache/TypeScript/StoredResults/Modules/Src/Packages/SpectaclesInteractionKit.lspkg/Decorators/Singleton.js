@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Singleton = Singleton;
+exports.Singleton = void 0;
 /**
  * A decorator function to make a class a singleton.
  *
@@ -25,4 +25,5 @@ function Singleton(constructor, _context) {
     };
     return newConstructor;
 }
+exports.Singleton = Singleton;
 //# sourceMappingURL=Singleton.js.map

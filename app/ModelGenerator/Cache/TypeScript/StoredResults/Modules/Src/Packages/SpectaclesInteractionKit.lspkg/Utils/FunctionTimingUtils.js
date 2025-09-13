@@ -1,8 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.throttle = exports.debounce = void 0;
-exports.setTimeout = setTimeout;
-exports.clearTimeout = clearTimeout;
+exports.clearTimeout = exports.setTimeout = exports.throttle = exports.debounce = void 0;
 const LensConfig_1 = require("./LensConfig");
 /**
  * Debounces a function
@@ -50,9 +48,11 @@ function setTimeout(callback, time) {
     }, time / 1000);
     return cancelToken;
 }
+exports.setTimeout = setTimeout;
 function clearTimeout(timeoutId) {
     if (timeoutId !== undefined && timeoutId.cancelled !== undefined) {
         timeoutId.cancelled = true;
     }
 }
+exports.clearTimeout = clearTimeout;
 //# sourceMappingURL=FunctionTimingUtils.js.map

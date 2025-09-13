@@ -40,9 +40,6 @@
         Port_Normal_N000:
           typeIdx: 4
           value: {x: 0.000000, y: 0.000000, z: 0.000000}
-        Port_PrevWorldPosition_N004:
-          typeIdx: 4
-          value: {x: 0.000000, y: 0.000000, z: 0.000000}
         Port_RayDirection_N004:
           typeIdx: 4
           value: {x: 0.000000, y: 1.000000, z: 0.000000}
@@ -117,7 +114,7 @@
             mValues:
               []
         ShaderType: Mesh3d
-      ShaderPath: 3e5e13c0-f698-c5d9-a9f3-99bbd05cb4cc/ee41f7df630ffc94465d4a7450ad6a08/Data/5c693aa/Simple Diffuse.glsl
+      ShaderPath: 3e5e13c0-f698-c5d9-a9f3-99bbd05cb4cc/ee41f7df630ffc94465d4a7450ad6a08/Data/0a4e116/Simple Diffuse.glsl
       Defines:
         []
       Properties:

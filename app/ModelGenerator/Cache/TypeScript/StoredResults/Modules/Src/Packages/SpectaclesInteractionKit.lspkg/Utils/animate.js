@@ -1,46 +1,12 @@
 "use strict";
-var __esDecorate = (this && this.__esDecorate) || function (ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-    function accept(f) { if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected"); return f; }
-    var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
-    var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
-    var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-    var _, done = false;
-    for (var i = decorators.length - 1; i >= 0; i--) {
-        var context = {};
-        for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
-        for (var p in contextIn.access) context.access[p] = contextIn.access[p];
-        context.addInitializer = function (f) { if (done) throw new TypeError("Cannot add initializers after decoration has completed"); extraInitializers.push(accept(f || null)); };
-        var result = (0, decorators[i])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
-        if (kind === "accessor") {
-            if (result === void 0) continue;
-            if (result === null || typeof result !== "object") throw new TypeError("Object expected");
-            if (_ = accept(result.get)) descriptor.get = _;
-            if (_ = accept(result.set)) descriptor.set = _;
-            if (_ = accept(result.init)) initializers.unshift(_);
-        }
-        else if (_ = accept(result)) {
-            if (kind === "field") initializers.unshift(_);
-            else descriptor[key] = _;
-        }
-    }
-    if (target) Object.defineProperty(target, contextIn.name, descriptor);
-    done = true;
-};
-var __runInitializers = (this && this.__runInitializers) || function (thisArg, initializers, value) {
-    var useValue = arguments.length > 2;
-    for (var i = 0; i < initializers.length; i++) {
-        value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
-    }
-    return useValue ? value : void 0;
-};
-var __setFunctionName = (this && this.__setFunctionName) || function (f, name, prefix) {
-    if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
-    return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AnimationManager = exports.CancelSet = exports.easingFunctions = exports.onAnimationStop = exports.onAnimationStart = void 0;
-exports.default = animate;
-exports.mix = mix;
+exports.AnimationManager = exports.mix = exports.CancelSet = exports.easingFunctions = exports.onAnimationStop = exports.onAnimationStart = void 0;
 const Singleton_1 = require("../Decorators/Singleton");
 const Event_1 = require("./Event");
 const onAnimationStartEvent = new Event_1.default();
@@ -266,6 +232,7 @@ function animate(config) {
     frame((_e = config.delayFrames) !== null && _e !== void 0 ? _e : 0);
     return cancel;
 }
+exports.default = animate;
 exports.CancelSet = class {
     constructor(config) {
         let calls = [];
@@ -302,6 +269,7 @@ function mix(a, b, t) {
     }
     throw new Error(`Illegal arguments`);
 }
+exports.mix = mix;
 function mixNumbers(a, b, t) {
     const range = b - a;
     return a + range * t;
@@ -328,48 +296,36 @@ function createCubicBezierEasingFunction(x1, y1, x2, y2) {
             .add(p3.uniformScale(t * t * t)).y;
     };
 }
-let AnimationManager = (() => {
-    let _classDecorators = [Singleton_1.Singleton];
-    let _classDescriptor;
-    let _classExtraInitializers = [];
-    let _classThis;
-    var AnimationManager = _classThis = class {
-        constructor() {
+let AnimationManager = class AnimationManager {
+    constructor() {
+        this.animationCallbacks = [];
+        this.countCallbacks = [];
+        this.sceneObject = global.scene.createSceneObject("animate-EventDispatcher");
+        this.script = this.sceneObject.createComponent("ScriptComponent");
+        this.requestAnimationFrame = (callback) => {
+            this.animationCallbacks.push(callback);
+        };
+        this.requestAnimationFrame.trackCounts = (callback) => {
+            this.countCallbacks.push(callback);
+        };
+        this.script.createEvent("UpdateEvent").bind(() => {
+            const callbacks = this.animationCallbacks;
+            // report the number of callbacks to the countCallbacks
+            if (callbacks.length) {
+                for (const callback of this.countCallbacks) {
+                    callback(callbacks.length);
+                }
+            }
+            // Animation Frames often reques the next frame
             this.animationCallbacks = [];
-            this.countCallbacks = [];
-            this.sceneObject = global.scene.createSceneObject("animate-EventDispatcher");
-            this.script = this.sceneObject.createComponent("ScriptComponent");
-            this.requestAnimationFrame = (callback) => {
-                this.animationCallbacks.push(callback);
-            };
-            this.requestAnimationFrame.trackCounts = (callback) => {
-                this.countCallbacks.push(callback);
-            };
-            this.script.createEvent("UpdateEvent").bind(() => {
-                const callbacks = this.animationCallbacks;
-                // report the number of callbacks to the countCallbacks
-                if (callbacks.length) {
-                    for (const callback of this.countCallbacks) {
-                        callback(callbacks.length);
-                    }
-                }
-                // Animation Frames often reques the next frame
-                this.animationCallbacks = [];
-                for (const callback of callbacks) {
-                    callback();
-                }
-            });
-        }
-    };
-    __setFunctionName(_classThis, "AnimationManager");
-    (() => {
-        const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(null) : void 0;
-        __esDecorate(null, _classDescriptor = { value: _classThis }, _classDecorators, { kind: "class", name: _classThis.name, metadata: _metadata }, null, _classExtraInitializers);
-        AnimationManager = _classThis = _classDescriptor.value;
-        if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, { enumerable: true, configurable: true, writable: true, value: _metadata });
-        __runInitializers(_classThis, _classExtraInitializers);
-    })();
-    return AnimationManager = _classThis;
-})();
+            for (const callback of callbacks) {
+                callback();
+            }
+        });
+    }
+};
 exports.AnimationManager = AnimationManager;
+exports.AnimationManager = AnimationManager = __decorate([
+    Singleton_1.Singleton
+], AnimationManager);
 //# sourceMappingURL=animate.js.map

@@ -1,4 +1,4 @@
-- !<AssetImportMetadata/3b955b85-979b-4322-8f2e-3cc78293cf5a>
+- !<AssetImportMetadata/c8626c9d-0b14-c6ba-2b61-f3dd91f47ccb>
   ImportedAssetIds:
     .hidden/Lightbake.001: !<reference> 937f503e-bde1-488e-a7d5-97a66169b206
     .hidden/white: !<reference> f27fb1e2-a546-483b-8284-0687b1c9b0e5
@@ -18,10 +18,13 @@
   ImporterName: FbxImporter
   PrimaryAsset: !<reference> 73fddc48-d18b-4a1c-a7cb-5b00514f02f9
   PackageType: LegacyPackage
-  ExtraData: {}
+  PackagePolicy: CanBeUnpackedTransparent
+  ExtraData:
+    {}
   AssetDataMap:
     Scene: !<own> 30c6608f-a3df-40bd-a62a-21a9afb96dd0
-  DependentFiles: []
+  DependentFiles:
+    []
   ImporterSettings: !<FbxImporterSettings>
     UseLegacyImporter: false
     WithMaterials: true
@@ -45,10 +48,11 @@
         CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
     ExtensionMappings:
       mesh: None Compression
-    Overrides: {}
-  LegacyPackagePolicy: CanBeUnpackedTransparent
+    Overrides:
+      {}
 - !<RenderMeshVisual/17a6832d-efd5-41bc-a1aa-7a80832fd5cb>
-  PrefabRemaps: []
+  PrefabRemaps:
+    []
   Name: component_1
   Enabled: true
   RenderOrder: 0
@@ -64,7 +68,8 @@
   Skin: !<reference> 00000000-0000-0000-0000-000000000000
   BlendShapesEnabled: true
   BlendNormals: false
-  BlendShapes: {}
+  BlendShapes:
+    {}
 - !<ObjectPrefabAssetData/30c6608f-a3df-40bd-a62a-21a9afb96dd0>
   SourceRemaps:
     - 3c8b4d3d-7f15-4888-82e9-3ac82fd712c2: 4ca4575b-a36d-4490-af17-98fc889c48e6
@@ -76,7 +81,8 @@
     - dd672388-aadb-4e6c-b91e-78f7ca9696ff: a19be6c3-c20e-4adb-a73f-19ecb553da55
   SourceState: !<own> 6d83ae4b-e428-4138-9969-789a0cca106c
 - !<SceneObject/4ca4575b-a36d-4490-af17-98fc889c48e6>
-  PrefabRemaps: []
+  PrefabRemaps:
+    []
   Name: Bases
   Enabled: true
   Layers: 1
@@ -89,7 +95,8 @@
     - !<own> ff5af3c9-887c-4216-adc1-6e42a5c1d42e
     - !<own> e0ea0f62-de71-4e1d-bfcd-336de71ab18a
     - !<own> b07eb5b6-81c3-4548-b686-3a08dca09465
-  Components: []
+  Components:
+    []
 - !<ObjectPrefab/6d83ae4b-e428-4138-9969-789a0cca106c>
   PackagePath: ""
   objects:
@@ -97,7 +104,8 @@
   LazyLoading: false
   RetainAssets: true
 - !<RenderMeshVisual/9a636ddc-9741-45d0-8840-aab039129bfe>
-  PrefabRemaps: []
+  PrefabRemaps:
+    []
   Name: component_0
   Enabled: true
   RenderOrder: 0
@@ -113,9 +121,11 @@
   Skin: !<reference> 00000000-0000-0000-0000-000000000000
   BlendShapesEnabled: true
   BlendNormals: false
-  BlendShapes: {}
+  BlendShapes:
+    {}
 - !<RenderMeshVisual/a19be6c3-c20e-4adb-a73f-19ecb553da55>
-  PrefabRemaps: []
+  PrefabRemaps:
+    []
   Name: component_2
   Enabled: true
   RenderOrder: 0
@@ -131,9 +141,11 @@
   Skin: !<reference> 00000000-0000-0000-0000-000000000000
   BlendShapesEnabled: true
   BlendNormals: false
-  BlendShapes: {}
+  BlendShapes:
+    {}
 - !<SceneObject/b07eb5b6-81c3-4548-b686-3a08dca09465>
-  PrefabRemaps: []
+  PrefabRemaps:
+    []
   Name: Circular
   Enabled: true
   Layers: 1
@@ -142,11 +154,13 @@
     Rotation: {x: -90.000000, y: -0.000000, z: 0.000000}
     Scale: {x: 100.000000, y: 100.000000, z: 100.000000}
     HasSegmentScaleCompensation: false
-  Children: []
+  Children:
+    []
   Components:
     - !<own> a19be6c3-c20e-4adb-a73f-19ecb553da55
 - !<SceneObject/e0ea0f62-de71-4e1d-bfcd-336de71ab18a>
-  PrefabRemaps: []
+  PrefabRemaps:
+    []
   Name: Cubic_01
   Enabled: true
   Layers: 1
@@ -155,11 +169,13 @@
     Rotation: {x: -90.000000, y: -0.000000, z: 0.000000}
     Scale: {x: 100.000000, y: 100.000000, z: 100.000000}
     HasSegmentScaleCompensation: false
-  Children: []
+  Children:
+    []
   Components:
     - !<own> 17a6832d-efd5-41bc-a1aa-7a80832fd5cb
 - !<SceneObject/ff5af3c9-887c-4216-adc1-6e42a5c1d42e>
-  PrefabRemaps: []
+  PrefabRemaps:
+    []
   Name: Hexagon_01
   Enabled: true
   Layers: 1
@@ -168,6 +184,7 @@
     Rotation: {x: -90.000000, y: -0.000000, z: 0.000000}
     Scale: {x: 100.000000, y: 100.000000, z: 100.000000}
     HasSegmentScaleCompensation: false
-  Children: []
+  Children:
+    []
   Components:
     - !<own> 9a636ddc-9741-45d0-8840-aab039129bfe

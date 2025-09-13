@@ -1,14 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CRITICAL_COLOR_STOPS = exports.DEFAULT_COLOR_STOPS = exports.DARKGRAY = exports.GRAY = exports.BLACK = exports.RED = exports.WHITE = exports.YELLOW = void 0;
-exports.parseColor = parseColor;
-exports.withAlpha = withAlpha;
-exports.withoutAlpha = withoutAlpha;
-exports.HSLToRGB = HSLToRGB;
-exports.HSLToRGBInPlace = HSLToRGBInPlace;
-exports.RGBToHSL = RGBToHSL;
-exports.RGBToHSLInPlace = RGBToHSLInPlace;
-exports.getMostCommonHue = getMostCommonHue;
+exports.getMostCommonHue = exports.RGBToHSLInPlace = exports.RGBToHSL = exports.HSLToRGBInPlace = exports.HSLToRGB = exports.CRITICAL_COLOR_STOPS = exports.DEFAULT_COLOR_STOPS = exports.DARKGRAY = exports.GRAY = exports.BLACK = exports.RED = exports.WHITE = exports.YELLOW = exports.withoutAlpha = exports.withAlpha = exports.parseColor = void 0;
 const SeededRandomNumberGenerator_1 = require("./SeededRandomNumberGenerator");
 // Parse the std color format "#RRGGBB" into a lensCore vec3
 function parseColor(str, alpha = 1.0) {
@@ -20,18 +12,21 @@ function parseColor(str, alpha = 1.0) {
     }
     return new vec4(parseInt(str.substr(0, 2), 16) / 255, parseInt(str.substr(2, 2), 16) / 255, parseInt(str.substr(4, 2), 16) / 255, alpha);
 }
+exports.parseColor = parseColor;
 // withAlpha is a simple utility for constructing a color value
 // that is the same as the given color value, but with a new
 // alpha value.
 function withAlpha(color, alpha) {
     return new vec4(color.r, color.g, color.b, alpha);
 }
+exports.withAlpha = withAlpha;
 // withAlpha is a simple utility for constructing a color value
 // that is the same as the given color value, but without any
 // alpha value.
 function withoutAlpha(color) {
     return new vec3(color.r, color.g, color.b);
 }
+exports.withoutAlpha = withoutAlpha;
 // Known Colors
 const YELLOW = (alpha = 1) => parseColor("#FFFC00", alpha);
 exports.YELLOW = YELLOW;
@@ -89,6 +84,7 @@ function HSLToRGB(HSL) {
     HSLToRGBInPlace(vector);
     return vector;
 }
+exports.HSLToRGB = HSLToRGB;
 const ONE_OVER_60 = 0.01666666666;
 /**
  * This function converts a color from HSL to RGB. Reference: https://en.wikipedia.org/wiki/HSL_and_HSV#HSL_to_RGB
@@ -137,6 +133,7 @@ function HSLToRGBInPlace(vector) {
         throw "Could not determine HSL conversion";
     }
 }
+exports.HSLToRGBInPlace = HSLToRGBInPlace;
 /**
  * This function converts a color from RGB to HSL. Reference: https://en.wikipedia.org/wiki/HSL_and_HSV#From_RGB
  * @param RGB {vec3} A color expressed as Red (x [0, 1]), Green (y [0, 1]), and Blue (z [0, 1])
@@ -147,6 +144,7 @@ function RGBToHSL(RGB) {
     RGBToHSLInPlace(vector);
     return vector;
 }
+exports.RGBToHSL = RGBToHSL;
 /**
  * This function converts a color from RGB to HSL. Reference: https://en.wikipedia.org/wiki/HSL_and_HSV#From_RGB
  * @param vector {vec3} A color expressed as Red (x [0, 1]), Green (y [0, 1]), and Blue (z [0, 1]).
@@ -178,6 +176,7 @@ function RGBToHSLInPlace(vector) {
     vector.y = s;
     vector.z = l;
 }
+exports.RGBToHSLInPlace = RGBToHSLInPlace;
 // How many color buckets to use when calculating the most common hue
 const BUCKET_COUNT = 16;
 // How many samples of the image to take when calculating the most common hue
@@ -241,4 +240,5 @@ function getMostCommonHue(texture) {
     const mostCommonHue = (maxBucketIndex / bucketCount) * 360;
     return mostCommonHue;
 }
+exports.getMostCommonHue = getMostCommonHue;
 //# sourceMappingURL=color.js.map

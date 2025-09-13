@@ -1,18 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Promisfy = void 0;
-exports.promisify = promisify;
-exports.promisifyWithReject = promisifyWithReject;
+exports.Promisfy = exports.promisifyWithReject = exports.promisify = void 0;
 function promisify(target, fn, ...args) {
     return new Promise((resolve) => {
         fn.call(target, ...args, resolve);
     });
 }
+exports.promisify = promisify;
 function promisifyWithReject(target, fn, ...args) {
     return new Promise((resolve, reject) => {
         fn.call(target, ...args, resolve, reject);
     });
 }
+exports.promisifyWithReject = promisifyWithReject;
 var Promisfy;
 (function (Promisfy) {
     var RemoteServiceModule;

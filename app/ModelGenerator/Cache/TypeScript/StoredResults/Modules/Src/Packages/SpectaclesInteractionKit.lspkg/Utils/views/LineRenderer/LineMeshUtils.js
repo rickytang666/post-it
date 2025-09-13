@@ -1,11 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getMiterOffset = getMiterOffset;
-exports.getSegmentNormalized = getSegmentNormalized;
-exports.getTangent = getTangent;
-exports.getEndWidth = getEndWidth;
-exports.buildSegment = buildSegment;
-exports.buildVertex = buildVertex;
+exports.buildVertex = exports.buildSegment = exports.getEndWidth = exports.getTangent = exports.getSegmentNormalized = exports.getMiterOffset = void 0;
 /**
  * Shifts vertices so that we can join corners of line segments w/ miter
  * @param prevSegment direction of previous vertex
@@ -20,17 +15,21 @@ function getMiterOffset(prevSegment, nextSegment, widthOffset) {
     const scaleWidth = widthOffset / miter.dot(normalA);
     return miter.uniformScale(scaleWidth);
 }
+exports.getMiterOffset = getMiterOffset;
 function getSegmentNormalized(currentPoint, nextPoint) {
     return currentPoint.sub(nextPoint).normalize();
 }
+exports.getSegmentNormalized = getSegmentNormalized;
 function getTangent(prevSegment, nextSegment) {
     return prevSegment.add(nextSegment).normalize();
 }
+exports.getTangent = getTangent;
 function getEndWidth(current, next, widthAtVertex) {
     const direction = next.sub(current);
     const normalizedDir = new vec3(-direction.y, direction.x, 0).normalize();
     return normalizedDir.uniformScale(widthAtVertex);
 }
+exports.getEndWidth = getEndWidth;
 /**
  * Builds a segment of the line using its MeshBuilder
  * @param point the position coordinates for the point
@@ -68,6 +67,7 @@ function buildSegment(point, prevSegment, tangent, uv_v) {
         uv_v
     ];
 }
+exports.buildSegment = buildSegment;
 // Sets up data for a single line vertex, for use in setVertexInterleaved
 function buildVertex(position, prevSegment, tangent, uv_u, uv_v) {
     return [
@@ -84,4 +84,5 @@ function buildVertex(position, prevSegment, tangent, uv_u, uv_v) {
         uv_v
     ];
 }
+exports.buildVertex = buildVertex;
 //# sourceMappingURL=LineMeshUtils.js.map

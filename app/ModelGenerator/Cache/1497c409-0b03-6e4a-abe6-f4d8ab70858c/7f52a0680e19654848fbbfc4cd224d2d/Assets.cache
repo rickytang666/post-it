@@ -106,9 +106,6 @@
         Port_Position9_N002:
           typeIdx: 1
           value: 0.350000
-        Port_PrevWorldPosition_N004:
-          typeIdx: 4
-          value: {x: 0.000000, y: 0.000000, z: 0.000000}
         Port_RayDirection_N004:
           typeIdx: 4
           value: {x: 0.000000, y: 1.000000, z: 0.000000}
@@ -224,7 +221,7 @@
             mValues:
               []
         ShaderType: Mesh3d
-      ShaderPath: 1497c409-0b03-6e4a-abe6-f4d8ab70858c/7f52a0680e19654848fbbfc4cd224d2d/Data/5c693aa/Planet_rings.glsl
+      ShaderPath: 1497c409-0b03-6e4a-abe6-f4d8ab70858c/7f52a0680e19654848fbbfc4cd224d2d/Data/0a4e116/Planet_rings.glsl
       Defines:
         []
       Properties:

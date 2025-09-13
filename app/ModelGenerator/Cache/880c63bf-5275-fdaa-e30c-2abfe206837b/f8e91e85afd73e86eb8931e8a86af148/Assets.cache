@@ -34,9 +34,6 @@
         Port_Input1_N003:
           typeIdx: 1
           value: 0.005000
-        Port_PrevWorldPosition_N004:
-          typeIdx: 4
-          value: {x: 0.000000, y: 0.000000, z: 0.000000}
         Port_RayDirection_N004:
           typeIdx: 4
           value: {x: 0.000000, y: 1.000000, z: 0.000000}
@@ -74,7 +71,7 @@
             mValues:
               []
         ShaderType: Mesh3d
-      ShaderPath: 880c63bf-5275-fdaa-e30c-2abfe206837b/f8e91e85afd73e86eb8931e8a86af148/Data/5c693aa/RoundButtonGlowIdle.glsl
+      ShaderPath: 880c63bf-5275-fdaa-e30c-2abfe206837b/f8e91e85afd73e86eb8931e8a86af148/Data/0a4e116/RoundButtonGlowIdle.glsl
       Defines:
         []
       Properties:

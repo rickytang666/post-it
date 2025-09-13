@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createCallback = createCallback;
+exports.createCallback = void 0;
 /**
  * Creates callbacks to be passed to UI Kit events from a script in the Inspector panel.
  * @param scriptComponent - the script to be used.
@@ -20,4 +20,5 @@ function createCallback(scriptComponent, functionNames) {
         });
     };
 }
+exports.createCallback = createCallback;
 //# sourceMappingURL=InspectorCallbacks.js.map
