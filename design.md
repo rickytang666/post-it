@@ -6,7 +6,7 @@ AR app for Snapchat Spectacles. Users leave virtual sticky notes at real locatio
 
 ## MVP Features
 
-1. **Create Notes**: Place text notes at locations using gestures
+1. **Create Notes**: User creates a "Post-Smart" (basically landmark) by prompting to AI. The AI generates a 3d model of the landmark and places it in the world.
 2. **Persist Notes**: Notes stay anchored to locations across sessions
 3. **Guide**: Display arrows pointing to distant notes
 4. **View Notes**: Click on notes to expand and see details
@@ -15,9 +15,12 @@ AR app for Snapchat Spectacles. Users leave virtual sticky notes at real locatio
 
 Lens Studio
 
+- **Agentic Playground** for AI-generated 3d models and speech-to-text
 - **Custom Locations** API for location mapping and memory of notes
 - **Path Pioneer** for navigation
 - **Essentials** template for basic interactions
+
+Gemini API for generating prompts for 3d models. Example: "This spot has a very nice view of the city." -> "Generate a 3d model of a beautiful sparkling camera."
 
 ## Team Roles (4 people)
 
