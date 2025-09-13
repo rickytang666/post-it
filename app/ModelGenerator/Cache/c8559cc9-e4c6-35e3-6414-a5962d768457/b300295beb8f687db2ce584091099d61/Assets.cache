@@ -196,9 +196,6 @@
         Port_Opacity_N149:
           typeIdx: 1
           value: 1.000000
-        Port_PrevWorldPosition_N004:
-          typeIdx: 4
-          value: {x: 0.000000, y: 0.000000, z: 0.000000}
         Port_RangeMaxA_N023:
           typeIdx: 1
           value: 1.000000
@@ -1064,7 +1061,7 @@
             mValues:
               []
         ShaderType: Mesh3d
-      ShaderPath: c8559cc9-e4c6-35e3-6414-a5962d768457/b300295beb8f687db2ce584091099d61/Data/5c693aa/Text3DDefault.glsl
+      ShaderPath: c8559cc9-e4c6-35e3-6414-a5962d768457/b300295beb8f687db2ce584091099d61/Data/0a4e116/Text3DDefault.glsl
       Defines:
         []
       Properties:

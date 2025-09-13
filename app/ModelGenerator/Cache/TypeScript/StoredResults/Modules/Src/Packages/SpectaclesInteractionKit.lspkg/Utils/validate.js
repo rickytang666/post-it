@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.validate = validate;
+exports.validate = void 0;
 /**
  * A one line solution to checking if an object is undefined or null that
  * asserts this so that strict compilers flag the variable as potentially
@@ -16,4 +16,5 @@ function validate(object, message = undefined) {
         throw new Error(message !== null && message !== void 0 ? message : "Attempted operation on null object.");
     }
 }
+exports.validate = validate;
 //# sourceMappingURL=validate.js.map

@@ -1,7 +1,7 @@
 ﻿if (script.onAwake) {
-    script.onAwake();
-    return;
-}
+	script.onAwake();
+	return;
+};
 /*
 @typedef HandVisualOverrideItem
 @property {float} overrideType {"widget":"combobox", "values":[{"label":"Force Pinch Visual", "value":0}, {"label":"Force Poke Visual", "value":1}, {"label":"Exclude Pinch Visual", "value":2}, {"label":"Exclude Poke Visual", "value":3}, {"label":"Pinch Distance Override", "value":4}, {"label":"Poke Distance Override", "value":5}]}
@@ -10,18 +10,18 @@
 */
 /*
 @typedef HandVisualOverride
-@property {SceneObject} interactableSceneObject
-@property {HandVisualOverrideItem[]} overrides
+@property {SceneObject} interactableSceneObject 
+@property {HandVisualOverrideItem[]} overrides 
 */
-function checkUndefined(property, showIfData) {
-    for (var i = 0; i < showIfData.length; i++) {
-        if (showIfData[i][0] && script[showIfData[i][0]] != showIfData[i][1]) {
-            return;
-        }
-    }
-    if (script[property] == undefined) {
-        throw new Error("Input " + property + " was not provided for the object " + script.getSceneObject().name);
-    }
+function checkUndefined(property, showIfData){
+   for (var i = 0; i < showIfData.length; i++){
+       if (showIfData[i][0] && script[showIfData[i][0]] != showIfData[i][1]){
+           return;
+       }
+   }
+   if (script[property] == undefined){
+      throw new Error('Input ' + property + ' was not provided for the object ' + script.getSceneObject().name);
+   }
 }
 // @ui {"hint":"Core settings that control how the user's hand appears in the AR environment.", "widget":"group_start", "label":"Hand Visual"}
 // @input bool debugModeEnabled {"hint":"Display debug rendering for the hand visual."}
@@ -100,14 +100,15 @@ function checkUndefined(property, showIfData) {
 // @input Asset.Material handOccluderMaterial {"hint":"The material which will create the occluder visual effect on the hand mesh."}
 // @ui {"widget":"group_end"}
 // @input HandVisualOverride[] overrides = {}
-if (!global.BaseScriptComponent) {
-    function BaseScriptComponent() {}
-    global.BaseScriptComponent = BaseScriptComponent;
-    global.BaseScriptComponent.prototype = Object.getPrototypeOf(script);
-    global.BaseScriptComponent.prototype.__initialize = function () {};
-    global.BaseScriptComponent.getTypeName = function () {
-        throw new Error("Cannot get type name from the class, not decorated with @component");
-    };
+var scriptPrototype = Object.getPrototypeOf(script);
+if (!global.BaseScriptComponent){
+   function BaseScriptComponent(){}
+   global.BaseScriptComponent = BaseScriptComponent;
+   global.BaseScriptComponent.prototype = scriptPrototype;
+   global.BaseScriptComponent.prototype.__initialize = function(){};
+   global.BaseScriptComponent.getTypeName = function(){
+       throw new Error("Cannot get type name from the class, not decorated with @component");
+   }
 }
 var Module = require("../../../../../../../Modules/Src/Packages/SpectaclesInteractionKit.lspkg/Components/Interaction/HandVisual/HandVisual");
 Object.setPrototypeOf(script, Module.HandVisual.prototype);

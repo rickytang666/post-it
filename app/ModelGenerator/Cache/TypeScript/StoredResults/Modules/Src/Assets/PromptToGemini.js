@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateSnap3DPrompt = generateSnap3DPrompt;
+exports.generateSnap3DPrompt = void 0;
 const Gemini_1 = require("Remote Service Gateway.lspkg/HostedExternal/Gemini");
 function generateSnap3DPrompt(userInput) {
     const geminiRequest = {
@@ -25,4 +25,5 @@ function generateSnap3DPrompt(userInput) {
         throw err;
     });
 }
+exports.generateSnap3DPrompt = generateSnap3DPrompt;
 //# sourceMappingURL=PromptToGemini.js.map

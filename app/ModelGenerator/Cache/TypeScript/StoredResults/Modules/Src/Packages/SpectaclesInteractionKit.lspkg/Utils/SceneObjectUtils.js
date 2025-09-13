@@ -1,9 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findSceneObjectByName = findSceneObjectByName;
-exports.isDescendantOf = isDescendantOf;
-exports.findComponentInChildren = findComponentInChildren;
-exports.findComponentInParents = findComponentInParents;
+exports.findComponentInParents = exports.findComponentInChildren = exports.isDescendantOf = exports.findSceneObjectByName = void 0;
 /**
  * Searches for a SceneObject with the given name in the tree rooted at the given root SceneObject.
  *
@@ -37,6 +34,7 @@ function findSceneObjectByName(root, name) {
     }
     return null;
 }
+exports.findSceneObjectByName = findSceneObjectByName;
 /**
  * Checks if a {@link SceneObject} is a descendant of another.
  * @param sceneObject - the potential descendant.
@@ -54,6 +52,7 @@ function isDescendantOf(sceneObject, root) {
     }
     return isDescendantOf(parent, root);
 }
+exports.isDescendantOf = isDescendantOf;
 /**
  * Recursively searches for a component in the children of the given SceneObject.
  *
@@ -81,6 +80,7 @@ function findComponentInChildren(sceneObject, componentType, maxDepth = 6, curre
     }
     return null;
 }
+exports.findComponentInChildren = findComponentInChildren;
 /**
  * Searches for a component in the parent hierarchy of the given SceneObject.
  *
@@ -102,4 +102,5 @@ function findComponentInParents(sceneObject, componentType, maxLevels = 3) {
     }
     return null;
 }
+exports.findComponentInParents = findComponentInParents;
 //# sourceMappingURL=SceneObjectUtils.js.map

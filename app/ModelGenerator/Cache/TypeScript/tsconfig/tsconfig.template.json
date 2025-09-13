@@ -5,6 +5,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "skipDefaultLibCheck": true,
+    "experimentalDecorators": true,
     "allowJs": true,
     "lib": ["es2019"],
     "types": [],

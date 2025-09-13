@@ -1,16 +1,16 @@
 ﻿if (script.onAwake) {
-    script.onAwake();
-    return;
-}
-function checkUndefined(property, showIfData) {
-    for (var i = 0; i < showIfData.length; i++) {
-        if (showIfData[i][0] && script[showIfData[i][0]] != showIfData[i][1]) {
-            return;
-        }
-    }
-    if (script[property] == undefined) {
-        throw new Error("Input " + property + " was not provided for the object " + script.getSceneObject().name);
-    }
+	script.onAwake();
+	return;
+};
+function checkUndefined(property, showIfData){
+   for (var i = 0; i < showIfData.length; i++){
+       if (showIfData[i][0] && script[showIfData[i][0]] != showIfData[i][1]){
+           return;
+       }
+   }
+   if (script[property] == undefined){
+      throw new Error('Input ' + property + ' was not provided for the object ' + script.getSceneObject().name);
+   }
 }
 // @ui {"widget":"group_start", "label":"Interactor"}
 // @input bool _drawDebug {"hint":"Should draw gizmos for visual debugging."}
@@ -34,14 +34,15 @@ function checkUndefined(property, showIfData) {
 // @input float directColliderExitRadius = 1.5 {"hint":"The radius in cm around the midpoint of the index/thumb to de-target Interactables (for bistable thresholding)."}
 // @input float directDragThreshold = 3 {"hint":"Controls the minimum distance the hand must move during direct interaction to be considered a drag. When the distance between the interaction origin position and current position exceeds this threshold, dragging behavior is detected and tracked. Lower values make dragging more sensitive and easier to trigger, while higher values require more deliberate movement before dragging begins."}
 // @ui {"widget":"group_end"}
-if (!global.BaseScriptComponent) {
-    function BaseScriptComponent() {}
-    global.BaseScriptComponent = BaseScriptComponent;
-    global.BaseScriptComponent.prototype = Object.getPrototypeOf(script);
-    global.BaseScriptComponent.prototype.__initialize = function () {};
-    global.BaseScriptComponent.getTypeName = function () {
-        throw new Error("Cannot get type name from the class, not decorated with @component");
-    };
+var scriptPrototype = Object.getPrototypeOf(script);
+if (!global.BaseScriptComponent){
+   function BaseScriptComponent(){}
+   global.BaseScriptComponent = BaseScriptComponent;
+   global.BaseScriptComponent.prototype = scriptPrototype;
+   global.BaseScriptComponent.prototype.__initialize = function(){};
+   global.BaseScriptComponent.getTypeName = function(){
+       throw new Error("Cannot get type name from the class, not decorated with @component");
+   }
 }
 var Module = require("../../../../../../Modules/Src/Packages/SpectaclesInteractionKit.lspkg/Core/HandInteractor/HandInteractor");
 Object.setPrototypeOf(script, Module.HandInteractor.prototype);

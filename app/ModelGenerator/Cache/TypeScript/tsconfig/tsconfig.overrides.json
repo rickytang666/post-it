@@ -6,6 +6,7 @@
     "outDir": "../Out/Modules/Src",
     "skipDefaultLibCheck": true,
     "noEmit": false,
+    "experimentalDecorators": true,
     "sourceMap": true,
     "sourceRoot": "./",
     "allowJs": true,

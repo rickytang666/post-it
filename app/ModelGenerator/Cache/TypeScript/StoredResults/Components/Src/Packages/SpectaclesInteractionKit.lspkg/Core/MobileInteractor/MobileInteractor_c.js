@@ -1,16 +1,16 @@
 ﻿if (script.onAwake) {
-    script.onAwake();
-    return;
-}
-function checkUndefined(property, showIfData) {
-    for (var i = 0; i < showIfData.length; i++) {
-        if (showIfData[i][0] && script[showIfData[i][0]] != showIfData[i][1]) {
-            return;
-        }
-    }
-    if (script[property] == undefined) {
-        throw new Error("Input " + property + " was not provided for the object " + script.getSceneObject().name);
-    }
+	script.onAwake();
+	return;
+};
+function checkUndefined(property, showIfData){
+   for (var i = 0; i < showIfData.length; i++){
+       if (showIfData[i][0] && script[showIfData[i][0]] != showIfData[i][1]){
+           return;
+       }
+   }
+   if (script[property] == undefined){
+      throw new Error('Input ' + property + ' was not provided for the object ' + script.getSceneObject().name);
+   }
 }
 // @ui {"widget":"group_start", "label":"Interactor"}
 // @input bool _drawDebug {"hint":"Should draw gizmos for visual debugging."}
@@ -32,14 +32,15 @@ function checkUndefined(property, showIfData) {
 // @input float _touchpadScrollSpeed = 250 {"hint":"Controls how much touchpad movement is amplified when translating touch input to 3D space.  Higher values result in faster/larger movements from small touch gestures, while lower values provide more precise control requiring larger touch gestures to achieve the same movement."}
 // @input float touchpadDragThreshold = 0.05 {"hint":"Controls the minimum distance a finger must move on the touchpad to be considered a drag. Uses normalized screen coordinates (0-1), where 0.05 represents 5% of the screen width/height. Lower values make dragging more sensitive to small movements."}
 // @ui {"widget":"group_end"}
-if (!global.BaseScriptComponent) {
-    function BaseScriptComponent() {}
-    global.BaseScriptComponent = BaseScriptComponent;
-    global.BaseScriptComponent.prototype = Object.getPrototypeOf(script);
-    global.BaseScriptComponent.prototype.__initialize = function () {};
-    global.BaseScriptComponent.getTypeName = function () {
-        throw new Error("Cannot get type name from the class, not decorated with @component");
-    };
+var scriptPrototype = Object.getPrototypeOf(script);
+if (!global.BaseScriptComponent){
+   function BaseScriptComponent(){}
+   global.BaseScriptComponent = BaseScriptComponent;
+   global.BaseScriptComponent.prototype = scriptPrototype;
+   global.BaseScriptComponent.prototype.__initialize = function(){};
+   global.BaseScriptComponent.getTypeName = function(){
+       throw new Error("Cannot get type name from the class, not decorated with @component");
+   }
 }
 var Module = require("../../../../../../Modules/Src/Packages/SpectaclesInteractionKit.lspkg/Core/MobileInteractor/MobileInteractor");
 Object.setPrototypeOf(script, Module.MobileInteractor.prototype);

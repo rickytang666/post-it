@@ -1,16 +1,16 @@
 ﻿if (script.onAwake) {
-    script.onAwake();
-    return;
-}
-function checkUndefined(property, showIfData) {
-    for (var i = 0; i < showIfData.length; i++) {
-        if (showIfData[i][0] && script[showIfData[i][0]] != showIfData[i][1]) {
-            return;
-        }
-    }
-    if (script[property] == undefined) {
-        throw new Error("Input " + property + " was not provided for the object " + script.getSceneObject().name);
-    }
+	script.onAwake();
+	return;
+};
+function checkUndefined(property, showIfData){
+   for (var i = 0; i < showIfData.length; i++){
+       if (showIfData[i][0] && script[showIfData[i][0]] != showIfData[i][1]){
+           return;
+       }
+   }
+   if (script[property] == undefined){
+      throw new Error('Input ' + property + ' was not provided for the object ' + script.getSceneObject().name);
+   }
 }
 // @ui {"hint":"Manipulation capability settings for interactable objects, including translation, rotation, and scaling. Allows configuration of the manipulation root, scale limits, and rotation axes.", "widget":"group_start", "label":"Interactable Manipulation"}
 // @input SceneObject manipulateRootSceneObject {"hint":"Root SceneObject of the set of SceneObjects to manipulate. If left blank, this script's SceneObject will be treated as the root. The root's transform will be modified by this script."}
@@ -35,14 +35,15 @@ function checkUndefined(property, showIfData) {
 // @input bool showRotationProperties {"hint":"Controls the visibility of rotation options in the Inspector."}
 // @input string _rotationAxis = "All" {"hint":"Controls which axes the object can rotate around. \"All\" allows free rotation in any direction, while \"X\", \"Y\", or \"Z\" constrains rotation to only that specific world axis.", "widget":"combobox", "values":[{"label":"All", "value":"All"}, {"label":"X", "value":"X"}, {"label":"Y", "value":"Y"}, {"label":"Z", "value":"Z"}], "showIf":"showRotationProperties", "showIfValue":true}
 // @ui {"widget":"group_end"}
-if (!global.BaseScriptComponent) {
-    function BaseScriptComponent() {}
-    global.BaseScriptComponent = BaseScriptComponent;
-    global.BaseScriptComponent.prototype = Object.getPrototypeOf(script);
-    global.BaseScriptComponent.prototype.__initialize = function () {};
-    global.BaseScriptComponent.getTypeName = function () {
-        throw new Error("Cannot get type name from the class, not decorated with @component");
-    };
+var scriptPrototype = Object.getPrototypeOf(script);
+if (!global.BaseScriptComponent){
+   function BaseScriptComponent(){}
+   global.BaseScriptComponent = BaseScriptComponent;
+   global.BaseScriptComponent.prototype = scriptPrototype;
+   global.BaseScriptComponent.prototype.__initialize = function(){};
+   global.BaseScriptComponent.getTypeName = function(){
+       throw new Error("Cannot get type name from the class, not decorated with @component");
+   }
 }
 var Module = require("../../../../../../../Modules/Src/Packages/SpectaclesInteractionKit.lspkg/Components/Interaction/InteractableManipulation/InteractableManipulation");
 Object.setPrototypeOf(script, Module.InteractableManipulation.prototype);

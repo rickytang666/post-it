@@ -4,7 +4,7 @@
   ImporterName: TypeScriptAssetImporter
   PrimaryAsset: !<reference> c0bb151a-51d6-4d51-9ad6-4dd6da6a384e
   PackageType: NotAPackage
-  LegacyPackagePolicy: ~
+  PackagePolicy: CannotBeUnpacked
   ExtraData:
     {}
   AssetDataMap:
@@ -24,7 +24,8 @@
   VersionPatch: 0
   ComponentUid: 7370bc78-2d15-4bf6-8632-d137557b54c3
   ExportUid: 00000000-0000-0000-0000-000000000000
-  PackagePolicy: CanBeUnpacked
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
   ScriptInputsHidden:
     text: false
   ScriptTypesHidden:

@@ -1,16 +1,16 @@
 ﻿if (script.onAwake) {
-    script.onAwake();
-    return;
-}
-function checkUndefined(property, showIfData) {
-    for (var i = 0; i < showIfData.length; i++) {
-        if (showIfData[i][0] && script[showIfData[i][0]] != showIfData[i][1]) {
-            return;
-        }
-    }
-    if (script[property] == undefined) {
-        throw new Error("Input " + property + " was not provided for the object " + script.getSceneObject().name);
-    }
+	script.onAwake();
+	return;
+};
+function checkUndefined(property, showIfData){
+   for (var i = 0; i < showIfData.length; i++){
+       if (showIfData[i][0] && script[showIfData[i][0]] != showIfData[i][1]){
+           return;
+       }
+   }
+   if (script[property] == undefined){
+      throw new Error('Input ' + property + ' was not provided for the object ' + script.getSceneObject().name);
+   }
 }
 // @input int buttonType {"hint":"Defines the interactive behavior and visual feedback style of the button:\n- Pinch Button: Standard button with hover/pinch states.\n- Toggle Button: Switches between on/off states and maintains state after interaction.\n- State Button: Similar to toggle button but with optional Persistent Pinched State.", "widget":"combobox", "values":[{"label":"Pinch Button", "value":0}, {"label":"Toggle Button", "value":1}, {"label":"State Button", "value":2}]}
 // @ui {"widget":"separator"}
@@ -38,14 +38,15 @@ function checkUndefined(property, showIfData) {
 // @ui {"widget":"separator"}
 // @input Asset.Texture defaultIcon {"hint":"The texture displayed on the button in its default state (not toggled). Applied to idle, hover, and pinched materials."}
 // @input Asset.Texture onIcon {"hint":"The texture displayed when the button is toggled on. Replaces defaultIcon for toggle and state buttons when activated."}
-if (!global.BaseScriptComponent) {
-    function BaseScriptComponent() {}
-    global.BaseScriptComponent = BaseScriptComponent;
-    global.BaseScriptComponent.prototype = Object.getPrototypeOf(script);
-    global.BaseScriptComponent.prototype.__initialize = function () {};
-    global.BaseScriptComponent.getTypeName = function () {
-        throw new Error("Cannot get type name from the class, not decorated with @component");
-    };
+var scriptPrototype = Object.getPrototypeOf(script);
+if (!global.BaseScriptComponent){
+   function BaseScriptComponent(){}
+   global.BaseScriptComponent = BaseScriptComponent;
+   global.BaseScriptComponent.prototype = scriptPrototype;
+   global.BaseScriptComponent.prototype.__initialize = function(){};
+   global.BaseScriptComponent.getTypeName = function(){
+       throw new Error("Cannot get type name from the class, not decorated with @component");
+   }
 }
 var Module = require("../../../../../../Modules/Src/Packages/SpectaclesInteractionKit.lspkg/Components/Helpers/ButtonFeedback");
 Object.setPrototypeOf(script, Module.ButtonFeedback.prototype);

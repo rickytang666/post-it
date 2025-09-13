@@ -4,7 +4,7 @@
   ImporterName: TypeScriptAssetImporter
   PrimaryAsset: !<reference> 59491b38-58e8-4937-a76b-165a2ed86093
   PackageType: NotAPackage
-  LegacyPackagePolicy: ~
+  PackagePolicy: CannotBeUnpacked
   ExtraData:
     {}
   AssetDataMap:
@@ -24,7 +24,8 @@
   VersionPatch: 0
   ComponentUid: ae5a734b-eb9f-475c-b905-31daafa324c6
   ExportUid: 00000000-0000-0000-0000-000000000000
-  PackagePolicy: CanBeUnpacked
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
   ScriptInputsHidden:
     asrQueryController: false
     snap3DFactory: false

@@ -76,9 +76,6 @@
         Port_Metallic_N036:
           typeIdx: 1
           value: 0.000000
-        Port_PrevWorldPosition_N004:
-          typeIdx: 4
-          value: {x: 0.000000, y: 0.000000, z: 0.000000}
         Port_RayDirection_N004:
           typeIdx: 4
           value: {x: 0.000000, y: 1.000000, z: 0.000000}
@@ -917,7 +914,7 @@
             mValues:
               []
         ShaderType: Mesh3d
-      ShaderPath: 27619bbe-a0b2-236d-00b1-9ba762eb8564/648d5eb70c5735f16cebaf1fdfa67332/Data/5c693aa/PinchButton-ActiveOrInActive.glsl
+      ShaderPath: 27619bbe-a0b2-236d-00b1-9ba762eb8564/648d5eb70c5735f16cebaf1fdfa67332/Data/0a4e116/PinchButton-ActiveOrInActive.glsl
       Defines:
         []
       Properties:

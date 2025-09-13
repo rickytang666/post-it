@@ -4,7 +4,7 @@
   ImporterName: ObjectPrefabImporter
   PrimaryAsset: !<reference> db10c49c-d024-4b0e-8649-a551ad0864ad
   PackageType: NotAPackage
-  LegacyPackagePolicy: ~
+  PackagePolicy: CannotBeUnpacked
   ExtraData:
     {}
   AssetDataMap:
@@ -60,18 +60,15 @@
     Mode: Solid
     Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     Texture: !<reference> 00000000-0000-0000-0000-000000000000
-    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     TileCount: 5.000000
     TileZone: Rect
     TextureStretch: FitWidth
-  BlendMode: PremultipliedAlpha
   Outline: !<OutlineSettings>
     Enabled: false
     Fill: !<TextFill>
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
-      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -82,7 +79,6 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
-      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth
@@ -94,7 +90,6 @@
       Mode: Solid
       Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
       Texture: !<reference> 00000000-0000-0000-0000-000000000000
-      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
       TileCount: 5.000000
       TileZone: Rect
       TextureStretch: FitWidth

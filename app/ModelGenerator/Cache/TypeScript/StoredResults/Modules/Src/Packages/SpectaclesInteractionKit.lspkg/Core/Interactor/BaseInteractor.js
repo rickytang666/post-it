@@ -10,82 +10,6 @@ const DragProvider_1 = require("./DragProvider");
  * Defines API for {@link Interactor} type
  */
 class BaseInteractor extends BaseScriptComponent {
-    __initialize() {
-        super.__initialize();
-        this._drawDebug = this._drawDebug;
-        this.sphereCastEnabled = this.sphereCastEnabled;
-        /**
-         * Defines the radii (in cm) used for progressive spherecasting when raycast fails to hit a target. Used in
-         * sequence with spherecastDistanceThresholds to perform increasingly larger sphere casts until a target is found.
-         * Smaller radii provide more precise targeting while larger radii help target small or distant objects. Must have the
-         * same array length as spherecastDistanceThresholds.
-         */
-        this.spherecastRadii = this.spherecastRadii;
-        /**
-         * Defines distance offsets (in cm) from the ray origin for performing sphere casts. Each value creates a sphere
-         * cast starting point at [ray origin + (direction * offset)]. Used in sequence with spherecastRadii, with the system
-         * trying progressively larger sphere casts until a target is found. Helps improve targeting of small or distant
-         * objects. Must have the same array length as spherecastRadii.
-         */
-        this.spherecastDistanceThresholds = this.spherecastDistanceThresholds;
-        this._maxRaycastDistance = this._maxRaycastDistance;
-        /**
-         * A multiplier applied to spherecast radii when using indirect targeting. Larger values create wider targeting
-         * areas, making it easier to target objects at the expense of precision. Smaller values provide more precise
-         * targeting.
-         */
-        this.indirectTargetingVolumeMultiplier = this.indirectTargetingVolumeMultiplier;
-        this.indirectDragThreshold = this.indirectDragThreshold;
-        this.interactionManager = InteractionManager_1.InteractionManager.getInstance();
-        this._dragProvider = new DragProvider_1.DragProvider(this.indirectDragThreshold);
-        // To allow the planecast drag vector to always be available for 1:1 usage, the threshold should be 0.
-        this._planecastDragProvider = new DragProvider_1.DragProvider(0);
-        this.onCurrentInteractableChangedEvent = new Event_1.default();
-        /**
-         * Called whenever the Interactor changes the target Interactable
-         */
-        this.onCurrentInteractableChanged = this.onCurrentInteractableChangedEvent.publicApi();
-        this.onTriggerStartEvent = new Event_1.default();
-        this.onTriggerUpdateEvent = new Event_1.default();
-        this.onTriggerEndEvent = new Event_1.default();
-        this.onTriggerCanceledEvent = new Event_1.default();
-        /**
-         * Called whenever the Interactor enters the triggered state (regardless of if there is a target or not).
-         */
-        this.onTriggerStart = this.onTriggerStartEvent.publicApi();
-        /**
-         * Called whenever the Interactor remains in the triggered state (regardless of if there is a target or not).
-         */
-        this.onTriggerUpdate = this.onTriggerUpdateEvent.publicApi();
-        /**
-         * Called whenever the Interactor exits the triggered state (regardless of if there is a target or not).
-         */
-        this.onTriggerEnd = this.onTriggerEndEvent.publicApi();
-        /**
-         * Called whenever the Interactor is lost and was in a triggered state (regardless of if there is a target or not).
-         */
-        this.onTriggerCanceled = this.onTriggerCanceledEvent.publicApi();
-        this._currentDragVector = null;
-        this._previousStartPoint = null;
-        this._inputType = Interactor_1.InteractorInputType.None;
-        this._currentInteractable = null;
-        this._previousInteractable = null;
-        this._previousTrigger = Interactor_1.InteractorTriggerType.None;
-        this._currentTrigger = Interactor_1.InteractorTriggerType.None;
-        this._previousDragVector = null;
-        this._endedInsideInteractable = null;
-        this.interactionStartedInteractable = null;
-        /**
-         * Notifies that the Interactor has changed target Interactable
-         */
-        this.currentInteractableChanged = () => {
-            if (this.currentInteractable !== this.previousInteractable) {
-                this.onCurrentInteractableChangedEvent.invoke(this.currentInteractable);
-            }
-        };
-        this.interactionManager.registerInteractor(this);
-        this.createEvent("OnDestroyEvent").bind(() => this.release());
-    }
     set inputType(inputType) {
         this._inputType = inputType;
     }
@@ -141,82 +65,6 @@ class BaseInteractor extends BaseScriptComponent {
      */
     get previousDragVector() {
         return this._previousDragVector;
-    }
-    constructor() {
-        super();
-        this._drawDebug = this._drawDebug;
-        this.sphereCastEnabled = this.sphereCastEnabled;
-        /**
-         * Defines the radii (in cm) used for progressive spherecasting when raycast fails to hit a target. Used in
-         * sequence with spherecastDistanceThresholds to perform increasingly larger sphere casts until a target is found.
-         * Smaller radii provide more precise targeting while larger radii help target small or distant objects. Must have the
-         * same array length as spherecastDistanceThresholds.
-         */
-        this.spherecastRadii = this.spherecastRadii;
-        /**
-         * Defines distance offsets (in cm) from the ray origin for performing sphere casts. Each value creates a sphere
-         * cast starting point at [ray origin + (direction * offset)]. Used in sequence with spherecastRadii, with the system
-         * trying progressively larger sphere casts until a target is found. Helps improve targeting of small or distant
-         * objects. Must have the same array length as spherecastRadii.
-         */
-        this.spherecastDistanceThresholds = this.spherecastDistanceThresholds;
-        this._maxRaycastDistance = this._maxRaycastDistance;
-        /**
-         * A multiplier applied to spherecast radii when using indirect targeting. Larger values create wider targeting
-         * areas, making it easier to target objects at the expense of precision. Smaller values provide more precise
-         * targeting.
-         */
-        this.indirectTargetingVolumeMultiplier = this.indirectTargetingVolumeMultiplier;
-        this.indirectDragThreshold = this.indirectDragThreshold;
-        this.interactionManager = InteractionManager_1.InteractionManager.getInstance();
-        this._dragProvider = new DragProvider_1.DragProvider(this.indirectDragThreshold);
-        // To allow the planecast drag vector to always be available for 1:1 usage, the threshold should be 0.
-        this._planecastDragProvider = new DragProvider_1.DragProvider(0);
-        this.onCurrentInteractableChangedEvent = new Event_1.default();
-        /**
-         * Called whenever the Interactor changes the target Interactable
-         */
-        this.onCurrentInteractableChanged = this.onCurrentInteractableChangedEvent.publicApi();
-        this.onTriggerStartEvent = new Event_1.default();
-        this.onTriggerUpdateEvent = new Event_1.default();
-        this.onTriggerEndEvent = new Event_1.default();
-        this.onTriggerCanceledEvent = new Event_1.default();
-        /**
-         * Called whenever the Interactor enters the triggered state (regardless of if there is a target or not).
-         */
-        this.onTriggerStart = this.onTriggerStartEvent.publicApi();
-        /**
-         * Called whenever the Interactor remains in the triggered state (regardless of if there is a target or not).
-         */
-        this.onTriggerUpdate = this.onTriggerUpdateEvent.publicApi();
-        /**
-         * Called whenever the Interactor exits the triggered state (regardless of if there is a target or not).
-         */
-        this.onTriggerEnd = this.onTriggerEndEvent.publicApi();
-        /**
-         * Called whenever the Interactor is lost and was in a triggered state (regardless of if there is a target or not).
-         */
-        this.onTriggerCanceled = this.onTriggerCanceledEvent.publicApi();
-        this._currentDragVector = null;
-        this._previousStartPoint = null;
-        this._inputType = Interactor_1.InteractorInputType.None;
-        this._currentInteractable = null;
-        this._previousInteractable = null;
-        this._previousTrigger = Interactor_1.InteractorTriggerType.None;
-        this._currentTrigger = Interactor_1.InteractorTriggerType.None;
-        this._previousDragVector = null;
-        this._endedInsideInteractable = null;
-        this.interactionStartedInteractable = null;
-        /**
-         * Notifies that the Interactor has changed target Interactable
-         */
-        this.currentInteractableChanged = () => {
-            if (this.currentInteractable !== this.previousInteractable) {
-                this.onCurrentInteractableChangedEvent.invoke(this.currentInteractable);
-            }
-        };
-        this.interactionManager.registerInteractor(this);
-        this.createEvent("OnDestroyEvent").bind(() => this.release());
     }
     release() {
         this.interactionManager.deregisterInteractor(this);
@@ -401,6 +249,63 @@ class BaseInteractor extends BaseScriptComponent {
                 this.onTriggerEndEvent.invoke(this.currentInteractable);
             }
         }
+    }
+    __initialize() {
+        super.__initialize();
+        this.interactionManager = InteractionManager_1.InteractionManager.getInstance();
+        this._dragProvider = new DragProvider_1.DragProvider(this.indirectDragThreshold);
+        this._planecastDragProvider = new DragProvider_1.DragProvider(0);
+        this.onCurrentInteractableChangedEvent = new Event_1.default();
+        this.
+        /**
+         * Called whenever the Interactor changes the target Interactable
+         */
+        onCurrentInteractableChanged = this.onCurrentInteractableChangedEvent.publicApi();
+        this.onTriggerStartEvent = new Event_1.default();
+        this.onTriggerUpdateEvent = new Event_1.default();
+        this.onTriggerEndEvent = new Event_1.default();
+        this.onTriggerCanceledEvent = new Event_1.default();
+        this.
+        /**
+         * Called whenever the Interactor enters the triggered state (regardless of if there is a target or not).
+         */
+        onTriggerStart = this.onTriggerStartEvent.publicApi();
+        this.
+        /**
+         * Called whenever the Interactor remains in the triggered state (regardless of if there is a target or not).
+         */
+        onTriggerUpdate = this.onTriggerUpdateEvent.publicApi();
+        this.
+        /**
+         * Called whenever the Interactor exits the triggered state (regardless of if there is a target or not).
+         */
+        onTriggerEnd = this.onTriggerEndEvent.publicApi();
+        this.
+        /**
+         * Called whenever the Interactor is lost and was in a triggered state (regardless of if there is a target or not).
+         */
+        onTriggerCanceled = this.onTriggerCanceledEvent.publicApi();
+        this._currentDragVector = null;
+        this._previousStartPoint = null;
+        this._inputType = Interactor_1.InteractorInputType.None;
+        this._currentInteractable = null;
+        this._previousInteractable = null;
+        this._previousTrigger = Interactor_1.InteractorTriggerType.None;
+        this._currentTrigger = Interactor_1.InteractorTriggerType.None;
+        this._previousDragVector = null;
+        this._endedInsideInteractable = null;
+        this.interactionStartedInteractable = null;
+        this.
+        /**
+         * Notifies that the Interactor has changed target Interactable
+         */
+        currentInteractableChanged = () => {
+            if (this.currentInteractable !== this.previousInteractable) {
+                this.onCurrentInteractableChangedEvent.invoke(this.currentInteractable);
+            }
+        };
+        this.interactionManager.registerInteractor(this);
+        this.createEvent("OnDestroyEvent").bind(() => this.release());
     }
 }
 exports.default = BaseInteractor;

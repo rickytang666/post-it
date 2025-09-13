@@ -1,8 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.bfs = bfs;
-exports.filterTrees = filterTrees;
-exports.applyToDescendants = applyToDescendants;
+exports.applyToDescendants = exports.filterTrees = exports.bfs = void 0;
 /**
  * Performs a BFS on a collection of root objects and their descendants.
  * It uses a predicate function to determine if an object in the scene graph meets certain conditions.
@@ -33,6 +31,7 @@ function bfs(rootObjects, predicate) {
     }
     return null;
 }
+exports.bfs = bfs;
 /**
  * Returns a filtered list of objects based on a collection of root objects and their descendants.
  * It uses a predicate function to determine if an object in the scene graph meets certain conditions.
@@ -64,6 +63,7 @@ function filterTrees(rootObjects, predicate) {
     }
     return results;
 }
+exports.filterTrees = filterTrees;
 /**
  * Applies a function to all descendants of the root object.
  *
@@ -76,4 +76,5 @@ function applyToDescendants(rootObject, toApply) {
     }
     toApply(rootObject);
 }
+exports.applyToDescendants = applyToDescendants;
 //# sourceMappingURL=algorithms.js.map
