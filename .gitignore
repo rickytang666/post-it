@@ -1,1 +1,18 @@
 /context
+
+# Lens Studio cache files
+**/Cache/
+Cache/
+*.cache
+.cache
+
+# Lens Studio build artifacts
+**/Build/
+Build/
+
+# Lens Studio temporary files
+**/.tmp/
+.tmp/
+
+# macOS
+.DS_Store
