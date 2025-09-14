@@ -18,7 +18,8 @@ export class SummaryTool {
       context: { type: 'array', description: 'Array of previous conversation messages for context' },
       summaryContext: { type: 'object', description: 'Location comments and user opinions to analyze and summarize' },
       maxLength: { type: 'number', description: 'Maximum character length for the response', default: CHARACTER_LIMITS.BOT_CARD_TEXT },
-      educationalFocus: { type: 'boolean', description: 'Whether to maintain educational focus', default: true }
+      educationalFocus: { type: 'boolean', description: 'Whether to maintain educational focus', default: true },
+      locationNotes: { type: 'string', description: 'Additional location notes/comments to include in analysis' }
     },
     required: ['query']
   };
@@ -31,7 +32,7 @@ export class SummaryTool {
   }
 
   public async execute(args: Record<string, unknown>): Promise<{ success: boolean; result?: any; error?: string }> {
-    const { query, context, summaryContext, maxLength = CHARACTER_LIMITS.BOT_CARD_TEXT, educationalFocus = true } = args;
+    const { query, context, summaryContext, maxLength = CHARACTER_LIMITS.BOT_CARD_TEXT, educationalFocus = true, locationNotes } = args;
 
     if (!query || typeof query !== 'string') {
       return { success: false, error: 'Query parameter is required and must be a string' };
@@ -41,7 +42,7 @@ export class SummaryTool {
       print(`SummaryTool: 📍 Processing location comment query: "${(query as string).substring(0, 50)}..."`);
       
       // Build enhanced system prompt with location comment context injection
-      const systemPrompt = this.buildLocationCommentSystemPrompt(summaryContext, educationalFocus as boolean);
+      const systemPrompt = this.buildLocationCommentSystemPrompt(summaryContext, educationalFocus as boolean, locationNotes as string);
       
       // Prepare conversation context
       const conversationHistory = this.prepareConversationHistory(context, query as string);
@@ -83,7 +84,7 @@ export class SummaryTool {
   /**
    * Build system prompt with location comment context injection
    */
-  private buildLocationCommentSystemPrompt(summaryContext: any, educationalFocus: boolean): string {
+  private buildLocationCommentSystemPrompt(summaryContext: any, educationalFocus: boolean, locationNotes?: string): string {
     let prompt = "You are answering specific questions about location comments and user opinions:\n\n";
     
     // Inject location comment content into system prompt
@@ -113,6 +114,11 @@ export class SummaryTool {
       prompt += `LOCATION COMMENTS:\n${summaryContext}\n\n`;
     } else {
       prompt += "LOCATION COMMENTS: [No comment content available]\n\n";
+    }
+    
+    // Add additional location notes if provided
+    if (locationNotes && typeof locationNotes === 'string' && locationNotes.trim().length > 0) {
+      prompt += `ADDITIONAL LOCATION NOTES:\n${locationNotes}\n\n`;
     }
     
     prompt += "CRITICAL INSTRUCTIONS:\n";

@@ -19,7 +19,8 @@ export class SpatialTool {
       context: { type: 'array', description: 'Array of previous conversation messages for context' },
       maxLength: { type: 'number', description: 'Maximum character length for the response', default: CHARACTER_LIMITS.BOT_CARD_TEXT },
       enableImageInput: { type: 'boolean', description: 'Whether to capture and analyze camera input', default: true },
-      spatialContext: { type: 'string', description: 'Additional context about the current location and environment' }
+      spatialContext: { type: 'string', description: 'Additional context about the current location and environment' },
+      locationNotes: { type: 'string', description: 'Location notes/comments to use as context for spatial analysis' }
     },
     required: ['query']
   };
@@ -33,7 +34,7 @@ export class SpatialTool {
   }
 
   public async execute(args: Record<string, unknown>): Promise<{ success: boolean; result?: any; error?: string }> {
-    const { query, context, maxLength = CHARACTER_LIMITS.BOT_CARD_TEXT, enableImageInput = true, spatialContext } = args;
+    const { query, context, maxLength = CHARACTER_LIMITS.BOT_CARD_TEXT, enableImageInput = true, spatialContext, locationNotes } = args;
 
     if (!query || typeof query !== 'string') {
       return { success: false, error: 'Query parameter is required and must be a string' };
@@ -43,7 +44,7 @@ export class SpatialTool {
       print(`SpatialTool: 📍 Processing location query: "${(query as string).substring(0, 50)}..."`);
       
       // Build location awareness system prompt
-      const systemPrompt = this.buildLocationSystemPrompt(spatialContext as string, enableImageInput as boolean);
+      const systemPrompt = this.buildLocationSystemPrompt(spatialContext as string, enableImageInput as boolean, locationNotes as string);
       
       // Prepare conversation context
       const conversationHistory = this.prepareConversationHistory(context, query as string);
@@ -93,7 +94,7 @@ export class SpatialTool {
   /**
    * Build system prompt for location awareness and security assessment
    */
-  private buildLocationSystemPrompt(spatialContext: string, enableImageInput: boolean): string {
+  private buildLocationSystemPrompt(spatialContext: string, enableImageInput: boolean, locationNotes?: string): string {
     let prompt = "You are analyzing the current location environment and providing helpful information about places and potential security concerns.\n\n";
     
     prompt += "LOCATION CONTEXT:\n";
@@ -106,6 +107,11 @@ export class SpatialTool {
       prompt += "You should analyze what you see and provide location-specific insights.\n";
       prompt += "Use your visual perception to assess the current location and identify any potential concerns.\n";
       prompt += "When asked 'what do you see', describe exactly what you can observe in your current field of view.\n";
+    }
+    
+    // Add location notes if provided
+    if (locationNotes && typeof locationNotes === 'string' && locationNotes.trim().length > 0) {
+      prompt += `\nAVAILABLE LOCATION NOTES:\n${locationNotes}\n`;
     }
     
     prompt += "\nINSTRUCTIONS:\n";

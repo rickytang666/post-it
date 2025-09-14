@@ -152,7 +152,7 @@ export class ToolRouter {
    * AI-powered intelligent routing - uses LLM to make routing decisions
    */
   public async routeQuery(args: Record<string, unknown>): Promise<{ success: boolean; result?: any; error?: string }> {
-    const { query, summaryContext } = args;
+    const { query, summaryContext, locationNotes } = args;
     
     if (!query || typeof query !== 'string') {
       return { success: false, error: 'Query parameter is required and must be a string' };
@@ -165,7 +165,8 @@ export class ToolRouter {
       if (!selectedTool || !this.toolIndex.has(selectedTool)) {
         print(`ToolRouter: ⚠️ AI selected unknown tool "${selectedTool}", falling back to general_conversation`);
         const fallbackTool = this.toolIndex.get('general_conversation')!;
-        return await fallbackTool.instance.execute(args);
+        const enhancedArgs = { ...args, locationNotes };
+        return await fallbackTool.instance.execute(enhancedArgs);
       }
 
       const toolMetadata = this.toolIndex.get(selectedTool)!;
@@ -175,13 +176,16 @@ export class ToolRouter {
         print(`ToolRouter: 💡 Reasoning: ${toolMetadata.description}`);
       }
 
-      return await toolMetadata.instance.execute(args);
+      // Pass location notes to all tools
+      const enhancedArgs = { ...args, locationNotes };
+      return await toolMetadata.instance.execute(enhancedArgs);
       
     } catch (error) {
       print(`ToolRouter: ❌ AI routing failed: ${error}`);
       // Fallback to general conversation on error
       const fallbackTool = this.toolIndex.get('general_conversation')!;
-      return await fallbackTool.instance.execute(args);
+      const enhancedArgs = { ...args, locationNotes };
+      return await fallbackTool.instance.execute(enhancedArgs);
     }
   }
 
@@ -269,7 +273,8 @@ Respond with ONLY the tool name (e.g., "summary_tool", "diagram_tool", "spatial_
           context: { type: 'array', description: 'Array of previous conversation messages for routing context' },
           summaryContext: { type: 'object', description: 'Location comments and user opinions - critical for routing decisions' },
           maxLength: { type: 'number', description: 'Maximum character length for the response' },
-          educationalFocus: { type: 'boolean', description: 'Whether to focus on educational content' }
+          educationalFocus: { type: 'boolean', description: 'Whether to focus on educational content' },
+          locationNotes: { type: 'string', description: 'Location notes/comments to pass to tools as context' }
         },
         required: ['query']
       }

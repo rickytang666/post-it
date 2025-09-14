@@ -16,7 +16,8 @@ export class GeneralConversationTool {
       query: { type: 'string', description: 'The user query to respond to' },
       maxLength: { type: 'number', description: 'Maximum character length for the response', default: CHARACTER_LIMITS.BOT_CARD_TEXT },
       conversational: { type: 'boolean', description: 'Whether to use conversational tone', default: true },
-      educationalFocus: { type: 'boolean', description: 'Whether to maintain educational focus', default: true }
+      educationalFocus: { type: 'boolean', description: 'Whether to maintain educational focus', default: true },
+      locationNotes: { type: 'string', description: 'Location notes/comments to use as context for responses' }
     },
     required: ['query']
   };
@@ -46,7 +47,8 @@ export class GeneralConversationTool {
       query,
       maxLength = CHARACTER_LIMITS.BOT_CARD_TEXT,
       conversational = true,
-      educationalFocus = true
+      educationalFocus = true,
+      locationNotes
     } = args;
     
     print(`GeneralConversationTool: 🏢 Generating location comment response for: "${(query as string).substring(0, 50)}..."`);
@@ -55,8 +57,8 @@ export class GeneralConversationTool {
     const validMaxLength = (maxLength as number > 0) ? maxLength as number : CHARACTER_LIMITS.BOT_CARD_TEXT;
 
     try {
-      // Create a helpful location-based system prompt
-      const systemPrompt = `You are a helpful location-based comment assistant that helps users understand and interact with place reviews and comments.
+      // Create a helpful location-based system prompt with actual location notes
+      let systemPrompt = `You are a helpful location-based comment assistant that helps users understand and interact with place reviews and comments.
 
 RESPONSE REQUIREMENTS:
 - Your responses MUST be limited to exactly ${validMaxLength} characters or fewer
@@ -76,9 +78,16 @@ SPECIALIZATIONS:
 - Answering questions about specific locations and their comments
 - Clarifying unclear or confusing user comments
 - Providing helpful information about places based on community feedback
-- Identifying potential security concerns in user comments
+- Identifying potential security concerns in user comments`;
 
-Remember: Be helpful, extremely concise, and safety-focused while staying within the ${validMaxLength} character limit.`;
+      // Add location notes context if provided
+      if (locationNotes && typeof locationNotes === 'string' && locationNotes.trim().length > 0) {
+        systemPrompt += `\n\nAVAILABLE LOCATION NOTES:\n${locationNotes}\n\nUse these actual location notes to answer questions about specific places. Reference the real notes when responding.`;
+      } else {
+        systemPrompt += `\n\nNote: No specific location notes provided. Answer based on general knowledge about places.`;
+      }
+
+      systemPrompt += `\n\nRemember: Be helpful, extremely concise, and safety-focused while staying within the ${validMaxLength} character limit.`;
 
       // Call the AI with the conversational system prompt 
       // textOnly: false enables voice output for conversational responses
