@@ -1,1 +1,0 @@
-{"version":3,"file":"Delay.js","sourceRoot":"./","sources":["Packages/Spatial Anchors.lspkg/Util/Delay.ts"],"names":[],"mappings":";;;AAAA,yCAAsD;AAE/C,KAAK,UAAU,KAAK,CAAC,OAAe;IACzC,OAAO,IAAI,OAAO,CAAO,CAAC,OAAO,EAAE,MAAM,EAAE,EAAE;QAC3C,IAAA,qBAAU,EAAC,GAAG,EAAE;YACd,OAAO,EAAE,CAAC;QACZ,CAAC,EAAE,OAAO,GAAG,IAAI,CAAC,CAAC;IACrB,CAAC,CAAC,CAAC;AACL,CAAC;AAND,sBAMC"}
