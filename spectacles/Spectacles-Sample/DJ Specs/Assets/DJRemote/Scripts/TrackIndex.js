@@ -1,1 +1,0 @@
-script.trackIndex = 0;
