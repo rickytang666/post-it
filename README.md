@@ -50,7 +50,7 @@ We wanted to bring back the joy of exploring. Turn everyday spaces into a shared
 
 ### Prerequisites
 
-> [! WARNING]
+> [!NOTE]
 > Requires Snap Spectacles (currently in developer preview, not publicly available)
 
 - Snap Spectacle Lenses (currently unreleased)
