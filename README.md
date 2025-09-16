@@ -3,9 +3,17 @@
   <p>AR sticky notes for real-world exploration</p>
 </div>
 
-[![AR](https://img.shields.io/badge/AR-Snap%20Spectacles-yellow)](https://www.snapchat.com/spectacles)
-[![Built with](https://img.shields.io/badge/Built%20with-Lens%20Studio-blue)](https://lensstudio.snapchat.com/)
-[![AI](https://img.shields.io/badge/AI-Gemini%20%2B%20Snap3D-green)](https://ai.google.dev/gemini-api)
+<div align="center">
+  <a href="https://www.snapchat.com/spectacles">
+    <img src="https://img.shields.io/badge/AR-Snap%20Spectacles-yellow" alt="AR Snap Spectacles">
+  </a>
+  <a href="https://lensstudio.snapchat.com/">
+    <img src="https://img.shields.io/badge/Built%20with-Lens%20Studio-blue" alt="Built with Lens Studio">
+  </a>
+  <a href="https://ai.google.dev/gemini-api">
+    <img src="https://img.shields.io/badge/AI-Gemini%20%2B%20Snap3D-green" alt="AI Gemini + Snap3D">
+  </a>
+</div>
 
 ---
 
@@ -15,7 +23,7 @@ An AR experience that turns the real world into a digital bulletin board. Place 
 
 <div>
   <div style="display: flex; align-items: center;">
-    <img src="https://pbs.twimg.com/profile_images/1937652850353491968/4xmJWnn3_400x400.jpg" width="25" height="25" style="margin-right: 10px;" alt="Hack the North" />
+    <img src="https://pbs.twimg.com/profile_images/1937652850353491968/4xmJWnn3_400x400.jpg" width="15" height="15" style="margin-right: 10px;" alt="Hack the North" />
     <span>Semi-Finalist Submission of Hack the North 2025</span>
   </div>
 </div>
@@ -42,7 +50,8 @@ We wanted to bring back the joy of exploring. Turn everyday spaces into a shared
 
 ### Prerequisites
 
-> ⚠️ **Note**: Requires Snap Spectacles (currently in developer preview, not publicly available)
+> [! WARNING]
+> Requires Snap Spectacles (currently in developer preview, not publicly available)
 
 - Snap Spectacle Lenses (currently unreleased)
 - Snap Lens Studio v5.12 (do NOT use v5.13)
