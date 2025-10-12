@@ -5,10 +5,10 @@
 
 <div align="center">
   <a href="https://www.snapchat.com/spectacles">
-    <img src="https://img.shields.io/badge/AR-Snap%20Spectacles-yellow" alt="AR Snap Spectacles">
+    <img src="https://img.shields.io/badge/AR%20Lens-Snap%20Spectacles-yellow" alt="AR Snap Spectacles">
   </a>
   <a href="https://lensstudio.snapchat.com/">
-    <img src="https://img.shields.io/badge/Built%20with-Lens%20Studio-blue" alt="Built with Lens Studio">
+    <img src="https://img.shields.io/badge/Snap-Lens%20Studio-blue" alt="Built with Lens Studio">
   </a>
   <a href="https://ai.google.dev/gemini-api">
     <img src="https://img.shields.io/badge/AI-Gemini%20%2B%20Snap3D-green" alt="AI Gemini + Snap3D">
@@ -66,4 +66,8 @@ We wanted to bring back the joy of exploring. Turn everyday spaces into a shared
 
 ---
 
-👇 See more details and the demo video in [DEVPOST](https://devpost.com/software/post-it-jrswqx)
+## See More About Post-It 👇
+
+### [📺 Demo Video](https://youtu.be/bs8oWt-5LOQ?si=u2wb7M12xlD6GpOm)
+
+### [📝 Devpost](https://devpost.com/software/post-it-jrswqx)
