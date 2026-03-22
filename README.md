@@ -1,18 +1,12 @@
 <div align="center">
-  <h1>Post-It</h1>
-  <p>AR sticky notes for real-world exploration</p>
-</div>
 
-<div align="center">
-  <a href="https://www.snapchat.com/spectacles">
-    <img src="https://img.shields.io/badge/AR%20Lens-Snap%20Spectacles-yellow" alt="AR Snap Spectacles">
-  </a>
-  <a href="https://lensstudio.snapchat.com/">
-    <img src="https://img.shields.io/badge/Snap-Lens%20Studio-blue" alt="Built with Lens Studio">
-  </a>
-  <a href="https://ai.google.dev/gemini-api">
-    <img src="https://img.shields.io/badge/AI-Gemini%20%2B%20Snap3D-green" alt="AI Gemini + Snap3D">
-  </a>
+# Post-It
+
+AR sticky notes for real-world exploration
+
+<img src="https://pbs.twimg.com/profile_images/1937652850353491968/4xmJWnn3_400x400.jpg" width="15" height="15" alt="Hack the North" />
+<span>Semi-Finalist Submission of Hack the North 2025</span>
+
 </div>
 
 ---
@@ -20,13 +14,6 @@
 ## Overview
 
 An AR experience that turns the real world into a digital bulletin board. Place virtual sticky notes anywhere, leave messages for others to discover. Your thoughts become part of the physical space.
-
-<div>
-  <div style="display: flex; align-items: center;">
-    <img src="https://pbs.twimg.com/profile_images/1937652850353491968/4xmJWnn3_400x400.jpg" width="15" height="15" style="margin-right: 10px;" alt="Hack the North" />
-    <span>Semi-Finalist Submission of Hack the North 2025</span>
-  </div>
-</div>
 
 ## Inspirations
 
@@ -41,17 +28,14 @@ We wanted to bring back the joy of exploring. Turn everyday spaces into a shared
 
 ## Tech Stack
 
-- Snap Lens Studio (AR framework)
-- TypeScript & JavaScript
-- Gemini AI and snap3D API (3D model generation)
-- Spectacles Interaction Kit
+Snap Lens Studio, TypeScript, Gemini AI, Snap3D API, Spectacles Interaction Kit
 
 ## Quick Start
 
 ### Prerequisites
 
 > [!NOTE]
-> Requires Snap Spectacles (currently in developer preview, not publicly available)
+> Requires Snap Spectacles (might not be publicly available yet)
 
 - Snap Spectacle Lenses (currently unreleased)
 - Snap Lens Studio v5.12 (do NOT use v5.13)
